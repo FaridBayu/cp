@@ -1,0 +1,196 @@
+/* --- Buttons --- */
+.button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+/* 1. SETUP CONTAINER */
+.select-wrapper {
+  position: relative;
+  width: fit-content;
+}
+
+/* 2. STYLING TOMBOL UTAMA (HEADER) */
+.select-header {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 10px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  transition: 0.3s;
+  min-width: 150px; /* Agar ukuran tidak melompat saat teks berubah */
+}
+
+/* Logika Arrow Berputar saat Hover */
+.select-wrapper:hover .select-header .arrow {
+  transform: rotate(180deg);
+}
+
+.arrow {
+  transition: 0.3s ease;
+}
+
+/* 3. STYLING DROPDOWN MENU (OPTIONS) */
+.options-list {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 120%; /* Sedikit jarak dari tombol */
+  right: 0;
+  width: 100%; /* Mengikuti lebar tombol induk */
+  min-width: 200px;
+  background-color: var(--color-white);
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  
+  /* Logika Sembunyi/Muncul (Opacity) seperti contoh 1 */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  z-index: 100;
+}
+
+/* Munculkan menu saat wrapper di-hover */
+.select-wrapper:hover .options-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* 4. STYLING ITEM OPSI & RADIO BUTTON */
+
+/* Sembunyikan Radio Button asli */
+.options-list input[type="radio"] {
+  display: none;
+}
+
+/* Styling Label (Tombol dalam dropdown) */
+.option-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--color-dark);
+  transition: 0.2s;
+}
+
+.option-item i {
+  font-size: 18px;
+}
+
+/* Hover efek pada item */
+.option-item:hover {
+  background-color: rgba(115, 128, 236, 0.1); /* Primary transparan */
+  color: var(--color-primary);
+}
+
+/* Sembunyikan item yang sedang dipilih (opsional, sesuai logika contoh 1) */
+.options-list input[type="radio"]:checked + label {
+  display: none; 
+  /* Jika Anda ingin item tetap terlihat meski dipilih, hapus baris display: none ini 
+     dan ganti dengan style background active */
+}
+
+/* 5. LOGIKA MAGIS (:HAS) - MENGUBAH TEKS TOMBOL UTAMA */
+
+/* Masukkan teks ke dalam ::before elemen .select-header */
+.select-header::before {
+  content: attr(data-default); /* Default text */
+}
+
+/* Jika radio #opt-prod dipilih, ganti teks header jadi data-prod */
+.select-wrapper:has(#opt-prod:checked) .select-header::before {
+  content: attr(data-prod);
+}
+
+/* Jika radio #opt-stock dipilih, ganti teks header jadi data-stock */
+.select-wrapper:has(#opt-stock:checked) .select-header::before {
+  content: attr(data-stock);
+}
+
+/* --- Cards --- */
+.card {
+    background-color: var(--color-white);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* box-shadow: 8px 8px 30px #bebebe,
+                -8px -8px 30px #ffffff; */
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.card-header i {
+    font-size: 18px;
+    color: var(--color-gray);
+    cursor: help;
+}
+
+/* --- Placeholders --- */
+.chart-placeholder, .table-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    background-color: var(--color-light-gray);
+    border-radius: 8px;
+    color: var(--color-gray);
+    font-size: 16px;
+}
+
+/* --- Misc Components --- */
+.notification-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.notification-icon i {
+    font-size: 24px;
+    color: var(--color-gray);
+}
+
+.notification-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-error);
+    border-radius: 50%;
+    border: 1px solid var(--color-white);
+}

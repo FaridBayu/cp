@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>unicost - Dashboard</title>
+    <link rel="stylesheet" href="/src/styles/style.css">
+    <!-- Using Boxicons as specified in the original file -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Header is now at the top level -->
+    <header id="header-container"></header>
+    
+    <div class="main-body-container">
+        <!-- Sidebar will be rendered here by JavaScript -->
+        <aside id="sidebar-container"></aside>
+
+        <!-- Main content for each page will be rendered here -->
+        <main id="main-content">
+            <!-- DashboardView.js will populate this area -->
+        </main>
+    </div>
+    
+    <script type="module" src="/src/app/App.js"></script>
+</body>
+</html>
