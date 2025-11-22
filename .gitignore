@@ -1,0 +1,72 @@
+###############################
+# Node dependencies
+###############################
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+###############################
+# Build outputs
+###############################
+dist/
+public/dist/
+/frontend/dist/
+.cache/
+coverage/
+.tmp/
+
+###############################
+# Environment files
+###############################
+.env
+.env.*
+!backend/samples/.env.sample
+!samples/.env.sample
+
+###############################
+# Logs
+###############################
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+###############################
+# OS / Editor artifacts
+###############################
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+###############################
+# Testing
+###############################
+coverage/
+
+###############################
+# Optional tooling outputs
+###############################
+*.tsbuildinfo
+.eslintcache
+
+###############################
+# Runtime dumps
+###############################
+*.pid
+*.seed
+*.pid.lock
+
+###############################
+# Database
+###############################
+*.sqlite
+*.db
+*.sql
+*.bak

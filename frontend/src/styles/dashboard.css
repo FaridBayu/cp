@@ -1,0 +1,83 @@
+/* --- Dashboard Specific Layout --- */
+.dashboard-header {
+    margin-bottom: 24px;
+}
+
+.dashboard-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* --- Dashboard Cards --- */
+.stat-card .stat-value {
+    font-size: 52px;
+    font-weight: 600;
+    color: var(--color-dark);
+    line-height: 1.1;
+}
+
+.stat-card .stat-trend {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+.stat-trend.increase {
+    color: var(--color-success);
+}
+
+.stat-trend.decrease {
+    color: var(--color-error);
+}
+
+/* --- Dashboard Grid Placement --- */
+.chart-card {
+    grid-column: 1 / 3; /* Spans 2 columns */
+}
+
+.activity-log-card {
+    grid-column: 3 / 4; /* Spans 1 column */
+}
+
+.full-width-card {
+    grid-column: 1 / 4; /* Spans all 3 columns */
+}
+
+/* --- Activity Log --- */
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.activity-item {
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-light-gray);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.activity-title {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: var(--color-dark);
+}
+
+.activity-meta {
+    font-size: 12px;
+    color: var(--color-gray);
+}
+
+.activity-meta .user {
+    color: var(--color-primary);
+    font-weight: 500;
+}
